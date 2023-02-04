@@ -49,7 +49,7 @@ def make_chains(text_string, n_count):
                 chains[current_key] += ([words_list[i + n_count]])
         else:
             continue
-#    print(chains)
+    print(chains)
     return chains
 
 def make_text(chains, n_count):
