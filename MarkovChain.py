@@ -56,27 +56,14 @@ def make_text(chains, n_count):
     """Return text from chains."""
 
     words = []
-    while True:
-        keys_list = list(chains.keys())
-        link = choice(keys_list)
-        first_char = link[0][0]
-        print (first_char)
-        
-        if not first_char.isupper():
-            link = choice(keys_list)
-            continue
+    keys_list = list(chains.keys())
+    cur_key = choice(keys_list)
+    words.extend(cur_key)
+    while len(words) < n_count and cur_key in chains:
+        next = choice(chains[cur_key])
+        words.append(next)
+        cur_key = cur_key[1:] + (next,)
 
-        nth_link = choice(chains[link])
-        for i in range(len(link)-1):
-            words.append(str(link[i]))
-            words.append(str(nth_link))
-            new_key = link[1:i+n_count] + (nth_link,)
-        if new_key in chains:
-            continue
-        elif new_key not in chains:
-            break
-        elif not link[0][0].isupper():
-            continue
     words= ' '.join(words)
     # print(words)
     return words

@@ -18,7 +18,7 @@ async def on_message(message):
 
     print(message.content)
     if message.content.startswith('$hello'):
-        msg = "Hi there!"
+        msg = "Eureka!!"
         #msg = MarkovChain.make_text(MarkovChain.chains, 4)
         #print(msg)
         await message.channel.send(msg)
