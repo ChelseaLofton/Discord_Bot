@@ -16,8 +16,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    print(message.content)
     if message.content.startswith('$hello'):
-        msg = MarkovChain.make_text(MarkovChain.chains, 4)
+        msg = "Hi there!"
+        #msg = MarkovChain.make_text(MarkovChain.chains, 4)
+        #print(msg)
         await message.channel.send(msg)
 
         

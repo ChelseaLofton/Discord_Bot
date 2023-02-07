@@ -60,13 +60,14 @@ def make_text(chains, n_count):
         keys_list = list(chains.keys())
         link = choice(keys_list)
         first_char = link[0][0]
-#        print (first_char)
+        print (first_char)
+        
         if not first_char.isupper():
             link = choice(keys_list)
             continue
 
         nth_link = choice(chains[link])
-        for i in range (len(link)-1):
+        for i in range(len(link)-1):
             words.append(str(link[i]))
             words.append(str(nth_link))
             new_key = link[1:i+n_count] + (nth_link,)
@@ -74,8 +75,8 @@ def make_text(chains, n_count):
             continue
         elif new_key not in chains:
             break
-        # elif not link[0][0].isupper():
-        #     continue
+        elif not link[0][0].isupper():
+            continue
     words= ' '.join(words)
     # print(words)
     return words
